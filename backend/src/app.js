@@ -36,7 +36,11 @@ app.use('/api/', limiter);
 // CORS
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: [
+      process.env.FRONTEND_URL,
+      "http://localhost:5173",
+      "https://admirable-lolly-d0be66.netlify.app"
+    ],
     credentials: false
   })
 );

@@ -51,6 +51,12 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/delivery', deliveryRoutes);
 app.use('/api/cart', cartRoutes);
 
+
+// root route (for testing)
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 // health
 app.get('/api/health', (req, res) => res.json({ ok: true }));
 

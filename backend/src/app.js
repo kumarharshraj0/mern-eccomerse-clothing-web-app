@@ -39,7 +39,7 @@ app.use(
     origin: [
       process.env.FRONTEND_URL,
       "http://localhost:5173",
-      "https://admirable-lolly-d0be66.netlify.app"
+      "https://brilliant-boba-cc5cfd.netlify.app"
     ],
     credentials: false
   })

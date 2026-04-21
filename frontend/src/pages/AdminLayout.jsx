@@ -64,8 +64,8 @@ export default function AdminLayout() {
             <div className="w-px h-6 bg-slate-200 mx-2" />
             <div className="flex items-center gap-3 pl-2">
               <div className="text-right hidden sm:block">
-                <p className="text-xs font-black text-slate-900 uppercase tracking-tight">Master Admin</p>
-                <p className="text-[10px] font-bold text-green-500 uppercase tracking-widest">Active System</p>
+                <p className="text-xs font-semibold text-slate-900 uppercase tracking-tight">Master Admin</p>
+                <p className="text-[10px] font-semibold text-green-500 uppercase tracking-widest">Active System</p>
               </div>
               <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white border-2 border-white shadow-xl shadow-slate-200 ring-1 ring-slate-100 cursor-pointer hover:scale-105 transition-transform">
                 <User size={18} />
@@ -87,3 +87,5 @@ export default function AdminLayout() {
     </div>
   );
 }
+
+

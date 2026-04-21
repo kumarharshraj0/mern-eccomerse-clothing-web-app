@@ -14,8 +14,10 @@ const productSchema = new mongoose.Schema(
   description:{ type: String, index: true },
     brand: { type: String, index: true },
     images: [imageSchema],
-    color: {type:String},
-    size:{type:String},
+    colors: [String],
+    sizes: [String],
+    color: String, // Legacy support
+    size: String,  // Legacy support
     
     stock: { type: Number, default: 0 },
     sku: String,

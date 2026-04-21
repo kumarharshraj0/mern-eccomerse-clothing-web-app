@@ -27,6 +27,7 @@ exports.createOrder = async (req, res, next) => {
         title: product.title,
         price: product.price,
         qty: it.qty,
+        size: it.size,
         image: product.images[0] || null
       });
       subtotal += product.price * it.qty;

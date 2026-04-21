@@ -38,11 +38,11 @@ export default function Dashboard() {
       {/* Dashboard Intelligence Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-1">
-          <h1 className="text-4xl font-black tracking-tighter text-slate-900 uppercase">Strategic Overview</h1>
-          <p className="text-slate-500 font-medium font-serif italic text-lg">System-wide intelligence and trajectory</p>
+          <h1 className="text-4xl font-semibold tracking-tighter text-slate-900 uppercase">Strategic Overview</h1>
+          <p className="text-slate-500 font-medium font-serif text-lg">System-wide intelligence and trajectory</p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 bg-white px-4 py-2.5 rounded-2xl border border-slate-100 shadow-sm">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-400 bg-white px-4 py-2.5 rounded-2xl border border-slate-100 shadow-sm">
           <Clock size={14} className="text-primary" />
           Real-time Update: <span className="text-slate-900 ml-1">Live Now</span>
         </div>
@@ -69,19 +69,19 @@ export default function Dashboard() {
                 <div className={`w-14 h-14 bg-${card.color}-500/10 rounded-2xl flex items-center justify-center text-${card.color}-600 shadow-inner group-hover:bg-primary group-hover:text-white transition-colors duration-300`}>
                   <card.icon size={24} />
                 </div>
-                <div className={`flex items-center gap-1 text-[10px] font-black uppercase tracking-wider ${card.isPositive ? "text-emerald-500" : "text-rose-500"}`}>
+                <div className={`flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider ${card.isPositive ? "text-emerald-500" : "text-rose-500"}`}>
                   {card.isPositive ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
                   {card.trend}
                 </div>
               </div>
 
               <div className="space-y-1 relative">
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 leading-tight">{card.label}</p>
-                <h3 className="text-3xl font-black text-slate-900 tracking-tighter">{card.value}</h3>
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 leading-tight">{card.label}</p>
+                <h3 className="text-3xl font-semibold text-slate-900 tracking-tighter">{card.value}</h3>
               </div>
 
               <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between relative">
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Analytics Insight</span>
+                <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-widest">Analytics Insight</span>
                 <ChevronRight size={14} className="text-slate-200 group-hover:text-primary transition-colors" />
               </div>
             </motion.div>
@@ -102,7 +102,7 @@ export default function Dashboard() {
               <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white">
                 <Target size={20} />
               </div>
-              <h2 className="text-xl font-black tracking-tight text-slate-900 uppercase">Fulfillment Velocity</h2>
+              <h2 className="text-xl font-semibold tracking-tight text-slate-900 uppercase">Fulfillment Velocity</h2>
             </div>
             <div className="flex gap-2">
               <div className="w-3 h-3 rounded-full bg-primary" />
@@ -125,7 +125,7 @@ export default function Dashboard() {
             <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-600">
               <CreditCard size={20} />
             </div>
-            <h2 className="text-xl font-black tracking-tight text-slate-900 uppercase">Asset Control</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-slate-900 uppercase">Asset Control</h2>
           </div>
 
           <div className="flex-1 overflow-hidden">
@@ -134,7 +134,7 @@ export default function Dashboard() {
 
           <Link
             to="/admin/products"
-            className="w-full mt-8 py-4 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-900 font-black text-[10px] uppercase tracking-widest transition-all text-center block no-underline"
+            className="w-full mt-8 py-4 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-900 font-semibold text-[10px] uppercase tracking-widest transition-all text-center block no-underline"
           >
             Enter Full Asset Registry
           </Link>
@@ -143,4 +143,6 @@ export default function Dashboard() {
     </div>
   );
 }
+
+
 

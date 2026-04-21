@@ -33,8 +33,8 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-2xl backdrop-blur-xl">
-        <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">{label || "Metrics"}</p>
-        <p className="text-sm font-black text-white">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-1">{label || "Metrics"}</p>
+        <p className="text-sm font-semibold text-white">
           {payload[0].name}: <span className="text-primary ml-2">{payload[0].value}</span>
         </p>
       </div>
@@ -62,7 +62,7 @@ const DeliveryDashboard = () => {
     <div className="flex h-screen items-center justify-center bg-slate-50">
       <div className="flex flex-col items-center animate-pulse">
         <div className="w-12 h-12 bg-slate-200 rounded-2xl mb-4" />
-        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Synchronizing Fleet Intel...</p>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-400">Synchronizing Delivery Analytics...</p>
       </div>
     </div>
   );
@@ -87,17 +87,17 @@ const DeliveryDashboard = () => {
           <div className="space-y-1">
             <div className="flex items-center gap-3 text-primary mb-2">
               <Activity size={24} />
-              <span className="text-[10px] font-black uppercase tracking-[0.3em]">Fleet Status: Active</span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.3em]">Delivery Status: Active</span>
             </div>
-            <h1 className="text-4xl font-black tracking-tighter text-slate-900 uppercase">Operational Intel</h1>
-            <p className="text-slate-500 font-medium font-serif italic text-lg">Fleet performance metrics & fulfillment velocity</p>
+            <h1 className="text-4xl font-semibold tracking-tighter text-slate-900 uppercase">Performance Overview</h1>
+            <p className="text-slate-500 font-medium font-serif text-lg">Fleet performance metrics & fulfillment velocity</p>
           </div>
 
           <div className="flex items-center gap-4">
             <select
               value={range}
               onChange={(e) => setRange(e.target.value)}
-              className="bg-white border border-slate-200 rounded-2xl px-6 h-14 text-[10px] font-black uppercase tracking-widest focus:ring-4 focus:ring-primary/5 transition-all outline-none shadow-sm cursor-pointer"
+              className="bg-white border border-slate-200 rounded-2xl px-6 h-14 text-[10px] font-semibold uppercase tracking-widest focus:ring-4 focus:ring-primary/5 transition-all outline-none shadow-sm cursor-pointer"
             >
               <option value="today">Daily Pulse</option>
               <option value="weekly">Weekly Pulse</option>
@@ -124,10 +124,10 @@ const DeliveryDashboard = () => {
                 <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-400 group-hover:text-primary transition-colors">
                   <s.icon size={20} />
                 </div>
-                <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest border-slate-200">Real-time</Badge>
+                <Badge variant="outline" className="text-[8px] font-semibold uppercase tracking-widest border-slate-200">Real-time</Badge>
               </div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{s.label}</p>
-              <h4 className={`text-4xl font-black tracking-tighter ${s.color}`}>{s.val}</h4>
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-1">{s.label}</p>
+              <h4 className={`text-4xl font-semibold tracking-tighter ${s.color}`}>{s.val}</h4>
             </motion.div>
           ))}
         </div>
@@ -136,7 +136,7 @@ const DeliveryDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col items-center">
             <div className="w-full flex justify-between items-center mb-12">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400">Duty Distribution</h3>
+              <h3 className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Duty Distribution</h3>
               <BarChart3 size={16} className="text-slate-200" />
             </div>
 
@@ -165,9 +165,9 @@ const DeliveryDashboard = () => {
                 <div key={i} className="bg-slate-50 rounded-2xl p-4 flex items-center justify-between border border-slate-50">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[i] }} />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{d.name}</span>
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">{d.name}</span>
                   </div>
-                  <span className="text-xs font-black text-slate-900">{d.value}</span>
+                  <span className="text-xs font-semibold text-slate-900">{d.value}</span>
                 </div>
               ))}
             </div>
@@ -177,16 +177,16 @@ const DeliveryDashboard = () => {
             <div>
               <div className="flex items-center gap-3 text-primary mb-6">
                 <Zap size={20} />
-                <span className="text-[10px] font-black uppercase tracking-[0.3em]">Fleet Prime Directives</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.3em]">Fleet Prime Directives</span>
               </div>
-              <h3 className="text-2xl font-black text-white uppercase tracking-tighter mb-4">Execute with Precision</h3>
-              <p className="text-slate-400 font-medium font-serif italic text-lg leading-relaxed">
+              <h3 className="text-2xl font-semibold text-white uppercase tracking-tighter mb-4">Execute with Precision</h3>
+              <p className="text-slate-400 font-medium font-serif text-lg leading-relaxed">
                 Your performance in the current cycle is exceeding baseline parameters. Maintain delivery velocity for bonus eligibility.
               </p>
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-widest text-slate-500">
                 <span>Completion Rate</span>
                 <span>{selected?.total > 0 ? ((selected.completed / selected.total) * 100).toFixed(1) : 0}%</span>
               </div>
@@ -198,7 +198,7 @@ const DeliveryDashboard = () => {
                   className="h-full bg-primary rounded-full shadow-[0_0_20px_rgba(99,102,241,0.5)]"
                 />
               </div>
-              <Button variant="ghost" className="w-full h-14 rounded-2xl text-white font-black uppercase tracking-widest text-[10px] border border-white/10 hover:bg-white/5 gap-2 group mt-4">
+              <Button variant="ghost" className="w-full h-14 rounded-2xl text-white font-semibold uppercase tracking-widest text-[10px] border border-white/10 hover:bg-white/5 gap-2 group mt-4">
                 View Detailed Logs <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -210,6 +210,8 @@ const DeliveryDashboard = () => {
 };
 
 export default DeliveryDashboard;
+
+
 
 
 

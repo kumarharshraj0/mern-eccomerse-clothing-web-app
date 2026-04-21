@@ -36,3 +36,5 @@ export const addProductFormElements = [
     placeholder: "Enter stock quantity",
   },
 ];
+
+

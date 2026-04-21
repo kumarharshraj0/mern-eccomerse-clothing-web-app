@@ -47,9 +47,9 @@
 :root {
   --radius: 0.75rem;
 
-  /* --- Premium Slate & Indigo Palette (OKLCH) --- */
-  --background: oklch(0.99 0.005 240);
-  --foreground: oklch(0.15 0.02 240);
+  /* --- Professional Industry-Standard Palette (OKLCH) --- */
+  --background: oklch(0.99 0.005 210); /* Clean white with a hint of cooler slate */
+  --foreground: oklch(0.15 0.02 240);  /* Deep Charcoal/Navy */
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.02 240);
@@ -57,72 +57,54 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.02 240);
 
-  --primary: oklch(0.55 0.16 260);
-  /* Deep Indigo */
-  --primary-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.25 0.05 260); /* Deep Professional Navy */
+  --primary-foreground: oklch(0.98 0.01 260);
 
-  --secondary: oklch(0.94 0.02 240);
-  /* Soft Lavender Grey */
-  --secondary-foreground: oklch(0.3 0.05 260);
+  --secondary: oklch(0.96 0.01 240); /* Soft Light Gray */
+  --secondary-foreground: oklch(0.3 0.02 240);
 
   --muted: oklch(0.96 0.01 240);
-  --muted-foreground: oklch(0.5 0.03 240);
+  --muted-foreground: oklch(0.5 0.02 240);
 
-  --accent: oklch(0.55 0.16 260 / 0.1);
-  --accent-foreground: oklch(0.55 0.16 260);
+  --accent: oklch(0.96 0.01 240); 
+  --accent-foreground: oklch(0.2 0.02 240);
 
-  --destructive: oklch(0.6 0.18 25);
-  --destructive-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.15 25);
+  --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.9 0.01 240);
-  --input: oklch(0.9 0.01 240);
-  --ring: oklch(0.55 0.16 260 / 0.5);
-
-  /* --- Chart Colors --- */
-  --chart-1: oklch(0.6 0.18 260);
-  --chart-2: oklch(0.6 0.15 180);
-  --chart-3: oklch(0.5 0.1 220);
-  --chart-4: oklch(0.8 0.15 90);
-  --chart-5: oklch(0.7 0.15 40);
-
-  /* --- Sidebar specific --- */
-  --sidebar: oklch(0.99 0.005 240);
-  --sidebar-foreground: oklch(0.15 0.02 240);
-  --sidebar-primary: oklch(0.55 0.16 260);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.55 0.16 260 / 0.05);
-  --sidebar-accent-foreground: oklch(0.55 0.16 260);
-  --sidebar-border: oklch(0.92 0.01 240);
-  --sidebar-ring: oklch(0.55 0.16 260 / 0.5);
+  --border: oklch(0.92 0.01 240); /* Subtle cool borders */
+  --input: oklch(0.92 0.01 240);
+  --ring: oklch(0.25 0.05 260 / 0.2);
 }
 
 .dark {
-  --background: oklch(0.18 0.02 240);
-  --foreground: oklch(0.95 0.01 240);
+  --background: oklch(0.12 0.03 240); /* Professional Dark Mode Slate */
+  --foreground: oklch(0.98 0.01 240);
 
-  --card: oklch(0.22 0.02 240);
-  --card-foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.16 0.03 240);
+  --card-foreground: oklch(0.98 0.01 240);
 
-  --popover: oklch(0.22 0.02 240);
-  --popover-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.16 0.03 240);
+  --popover-foreground: oklch(0.98 0.01 240);
 
-  --primary: oklch(0.65 0.14 250);
-  --primary-foreground: oklch(0.18 0.02 240);
+  --primary: oklch(0.7 0.1 240); /* Balanced Blue for Dark Mode */
+  --primary-foreground: oklch(0.12 0.03 240);
 
-  --secondary: oklch(0.28 0.03 245);
+  --secondary: oklch(0.22 0.03 240);
   --secondary-foreground: oklch(0.9 0.02 240);
 
-  --muted: oklch(0.28 0.03 245);
+  --muted: oklch(0.22 0.03 240);
   --muted-foreground: oklch(0.65 0.02 240);
 
-  --accent: oklch(0.65 0.14 250 / 0.15);
-  --accent-foreground: oklch(0.65 0.14 250);
+  --accent: oklch(0.22 0.03 240);
+  --accent-foreground: oklch(0.98 0.01 240);
 
-  --destructive: oklch(0.55 0.22 28);
+  --destructive: oklch(0.55 0.15 25);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.65 0.14 250 / 0.5);
+  --ring: oklch(0.7 0.1 240 / 0.5);
 }
+
 
 @layer base {
   * {
@@ -155,7 +137,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-700 to-indigo-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-primary;
   }
 
   .scrollbar-hide::-webkit-scrollbar {
@@ -166,4 +148,13 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+/* ─── Premium Glassmorphism Utility ─── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }

@@ -16,6 +16,9 @@ router.get('/', productController.getProducts);
 // Get product by ID (dynamic — must be last in public routes)
 router.get('/:id', productController.getById);
 
+// Get product reviews
+router.get('/:id/reviews', productController.getReviews);
+
 // -------------------------------------
 // ADMIN ROUTES (AUTH REQUIRED)
 // -------------------------------------

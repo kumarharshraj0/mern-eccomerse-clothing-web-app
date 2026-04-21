@@ -20,8 +20,8 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-2xl backdrop-blur-xl">
-        <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">{label || "Status"}</p>
-        <p className="text-sm font-black text-white">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-1">{label || "Status"}</p>
+        <p className="text-sm font-semibold text-white">
           {payload[0].name}: <span className="text-primary ml-2">₹{payload[0].value.toLocaleString()}</span>
         </p>
       </div>
@@ -74,9 +74,9 @@ export default function ChartAreaInteractive() {
         {/* Trajectory Area Chart */}
         <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 flex flex-col">
           <div className="flex justify-between items-center mb-10">
-            <h3 className="text-sm font-black uppercase tracking-widest text-slate-400">Revenue Trajectory</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-400">Revenue Trajectory</h3>
             <select
-              className="bg-white border border-slate-200 rounded-xl px-4 py-2 text-[10px] font-black uppercase tracking-widest focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+              className="bg-white border border-slate-200 rounded-xl px-4 py-2 text-[10px] font-semibold uppercase tracking-widest focus:ring-4 focus:ring-primary/5 transition-all outline-none"
               value={chartType}
               onChange={(e) => setChartType(e.target.value)}
             >
@@ -124,7 +124,7 @@ export default function ChartAreaInteractive() {
 
         {/* Fulfillment Distribution */}
         <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 flex flex-col">
-          <h3 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-10">Fulfillment Distribution</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-10">Fulfillment Distribution</h3>
           <div className="flex-1">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -151,9 +151,9 @@ export default function ChartAreaInteractive() {
               <div key={i} className="bg-white rounded-xl p-3 border border-slate-100">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[i] }} />
-                  <span className="text-[9px] font-black uppercase text-slate-400 truncate">{entry.name}</span>
+                  <span className="text-[9px] font-semibold uppercase text-slate-400 truncate">{entry.name}</span>
                 </div>
-                <p className="text-xs font-black text-slate-900">{entry.value}</p>
+                <p className="text-xs font-semibold text-slate-900">{entry.value}</p>
               </div>
             ))}
           </div>
@@ -162,6 +162,8 @@ export default function ChartAreaInteractive() {
     </div>
   );
 }
+
+
 
 
 

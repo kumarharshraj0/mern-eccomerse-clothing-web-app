@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
-import { Heart, Edit2 } from "lucide-react";
+import { Heart, Edit2, ShoppingCart } from "lucide-react";
 
 const ProductCard = React.memo(
   ({ product, onNavigate, onAddToCart, onToggleWishlist, isWishlisted }) => {
@@ -51,21 +51,25 @@ const ProductCard = React.memo(
 
         {/* DETAILS */}
         <div className="space-y-1">
-          <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">{product.brand || "ESSENTIALS"}</p>
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">{product.brand || "ESSENTIALS"}</p>
           <h4
             onClick={() => onNavigate(product._id)}
-            className="font-bold text-base text-foreground line-clamp-1 cursor-pointer group-hover:text-primary transition-colors"
+            className="font-semibold text-base text-foreground line-clamp-1 cursor-pointer group-hover:text-primary transition-colors"
           >
             {product.title}
           </h4>
           <div className="flex items-center justify-between pt-2">
-            <p className="text-lg font-black text-primary">₹{product.price}</p>
+            <p className="text-lg font-semibold text-primary">₹{product.price}</p>
             <Button
-              size="sm"
-              className="rounded-full px-4 h-9 shadow-lg shadow-primary/20 transition-all hover:shadow-primary/40 active:scale-95"
-              onClick={() => onAddToCart()}
+              size="icon"
+              className="rounded-full h-10 w-10 shadow-lg shadow-primary/20 transition-all hover:shadow-primary/40 active:scale-95 shrink-0"
+              onClick={(e) => {
+                e.stopPropagation();
+                onAddToCart();
+              }}
+              title="Add to Cart"
             >
-              Add to Cart
+              <ShoppingCart size={18} />
             </Button>
           </div>
         </div>
@@ -75,4 +79,6 @@ const ProductCard = React.memo(
 );
 
 export default ProductCard;
+
+
 

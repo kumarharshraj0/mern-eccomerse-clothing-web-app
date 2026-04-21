@@ -140,8 +140,8 @@ exports.getProducts = async (req, res) => {
     /* 🧩 MULTI FILTERS */
     if (category) filter.category = { $in: category.split(",") };
     if (brand) filter.brand = { $in: brand.split(",") };
-    if (color) filter.color = { $in: color.split(",") };
-    if (size) filter.size = { $in: size.split(",") };
+    if (color) filter.colors = { $in: color.split(",") };
+    if (size) filter.sizes = { $in: size.split(",") };
 
     /* 💰 PRICE */
     filter.price = {
@@ -211,6 +211,17 @@ exports.getlatestProducts = async (req, res, next) => {
 
 // upload images for product (admin)
 // ------------------------------
+
+exports.getReviews = async (req, res, next) => {
+  try {
+    const reviews = await Review.find({ product: req.params.id })
+      .populate('user', 'name email')
+      .sort({ createdAt: -1 });
+    res.json(reviews);
+  } catch (err) {
+    next(err);
+  }
+};
 
 
 // Reviews: create/update/delete by owner

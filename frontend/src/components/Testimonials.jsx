@@ -29,7 +29,7 @@ const Testimonials = () => {
   return (
     <section className="py-20 bg-muted/20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
+        <h2 className="text-4xl font-semibold text-center mb-12">What Our Customers Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
@@ -46,7 +46,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <Quote className="w-8 h-8 text-primary/20 mb-4" />
-                <p className="text-muted-foreground italic mb-6">"{testimonial.content}"</p>
+                <p className="text-muted-foreground mb-6">"{testimonial.content}"</p>
               </div>
               <div className="flex items-center gap-4">
                 <img
@@ -55,7 +55,7 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="font-bold">{testimonial.name}</h4>
+                  <h4 className="font-semibold">{testimonial.name}</h4>
                   <p className="text-xs text-muted-foreground uppercase tracking-widest">{testimonial.role}</p>
                 </div>
               </div>
@@ -68,3 +68,5 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+

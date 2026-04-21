@@ -3,7 +3,7 @@ const User = require('../models/User');
 const transporter = require('../config/nodemailer');
 const templates = require('../utils/emailTemplates');
 const crypto = require('crypto');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 

@@ -13,16 +13,27 @@ exports.getCart = async (req, res, next) => {
 
 exports.addToCart = async (req, res, next) => {
   try {
-    const { productId, qty = 1 } = req.body;
+    const { productId, qty = 1, size } = req.body;
     const user = await User.findById(req.user._id);
     const product = await Product.findById(productId);
     if (!product) return res.status(404).json({ message: 'Product not found' });
 
-    const item = user.cart.find((i) => i.product?.toString() === productId);
+    // Check if item with SAME productId AND SAME size exists
+    const item = user.cart.find(
+      (i) => i.product?.toString() === productId && i.size === size
+    );
+
     if (item) {
       item.qty = item.qty + qty;
     } else {
-      user.cart.push({ product: productId, qty, price: product.price, title: product.title, image: product.images?.[0] || null });
+      user.cart.push({
+        product: productId,
+        qty,
+        size,
+        price: product.price,
+        title: product.title,
+        image: product.images?.[0] || null,
+      });
     }
     await user.save();
     res.json({  success: true,cart: user.cart ,message:'Product added to cart' });

@@ -14,9 +14,6 @@ export const AuthProvider = ({ children }) => {
   /* ---------------------------------------------------
      FETCH CURRENT USER
   ---------------------------------------------------- */
-  /* ---------------------------------------------------
-     FETCH CURRENT USER
-  ---------------------------------------------------- */
   const fetchUser = useCallback(async () => {
     const token = localStorage.getItem("accessToken");
     if (!token) {
@@ -26,7 +23,6 @@ export const AuthProvider = ({ children }) => {
 
     try {
       const res = await API.get("/auth/profile");
-      setUser(res.data.user);
       setUser(res.data.user);
     } catch (err) {
       console.error("Fetch user failed:", err);
@@ -218,6 +214,8 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+
 
 
 

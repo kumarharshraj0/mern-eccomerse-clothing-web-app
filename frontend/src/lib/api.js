@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+    baseURL: import.meta.env.VITE_API_URL || 'https://mern-eccomerse-clothing-web-app-1.onrender.com/api',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -39,3 +39,5 @@ API.interceptors.response.use(
 );
 
 export default API;
+
+

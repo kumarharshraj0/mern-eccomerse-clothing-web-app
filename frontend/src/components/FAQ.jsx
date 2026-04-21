@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -23,38 +24,79 @@ const FAQ = () => {
     },
     {
       question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards, PayPal, and various digital wallets for your convenience.",
+      answer: "We accept all major credit cards, UPI, net banking, digital wallets, and cash on delivery for your convenience.",
     },
   ];
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      <div className="max-w-3xl mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center space-y-4 mb-16">
+          <div className="flex items-center justify-center gap-3 text-primary">
+            <HelpCircle size={20} />
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em]">Support</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter uppercase">
+            Frequently Asked <span className="text-primary">Questions</span>
+          </h2>
+          <p className="text-slate-500 font-medium text-lg max-w-md mx-auto">
+            Everything you need to know about shopping with us
+          </p>
+        </div>
+
+        {/* FAQ Items */}
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-border/60 rounded-xl overflow-hidden bg-card/50 transition-colors hover:border-border"
-            >
-              <button
-                className="w-full flex items-center justify-between p-5 text-left font-semibold transition-colors hover:bg-muted/10"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "border-primary/20 bg-primary/[0.02] shadow-lg shadow-primary/5"
+                    : "border-slate-100 bg-white hover:border-slate-200 shadow-sm"
+                }`}
               >
-                <span className="text-lg">{faq.question}</span>
-                {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-primary" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                )}
-              </button>
-              {openIndex === index && (
-                <div className="px-5 pb-5 text-muted-foreground animate-in fade-in slide-in-from-top-2 duration-300">
-                  <p>{faq.answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
+                <button
+                  className="w-full flex items-center justify-between p-6 text-left transition-colors"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                >
+                  <span className={`text-base font-semibold pr-4 transition-colors ${isOpen ? "text-primary" : "text-slate-900"}`}>
+                    {faq.question}
+                  </span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                      isOpen ? "bg-primary text-white" : "bg-slate-50 text-slate-400"
+                    }`}
+                  >
+                    <ChevronDown size={16} />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="px-6 pb-6 text-slate-500 font-medium leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -62,3 +104,5 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
+

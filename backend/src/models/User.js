@@ -38,6 +38,7 @@ const userSchema = new mongoose.Schema(
         qty: { type: Number, default: 1 },
         price: Number,
         title: String,
+        size: String,
         image: Object
       }
     ],

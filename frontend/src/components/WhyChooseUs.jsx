@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
               <div className="mb-4 p-3 bg-primary/10 rounded-full">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </div>
           ))}
@@ -48,6 +48,8 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
+
+
 
 
 

@@ -78,7 +78,13 @@ export const WishlistProvider = ({ children }) => {
   };
 
   // -------------------- AUTO FETCH --------------------
-  // Removed auto-fetch useEffect - components should call getWishlist() as needed
+  useEffect(() => {
+    if (user) {
+      getWishlist();
+    } else {
+      setWishlist([]);
+    }
+  }, [user, getWishlist]);
 
   return (
     <WishlistContext.Provider
@@ -97,4 +103,6 @@ export const WishlistProvider = ({ children }) => {
 };
 
 export const useWishlist = () => useContext(WishlistContext);
+
+
 

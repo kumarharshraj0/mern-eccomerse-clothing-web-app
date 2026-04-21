@@ -8,6 +8,7 @@ import PageTransition from "./components/PageTransition";
 import { useAuth } from "./context/AuthContext";
 import PageSkeleton from "./components/PageSkeleton";
 import AdminLayout from "./pages/AdminLayout";
+import ScrollToTop from "./components/ScrollToTop";
 
 /* ===================== LAZY LOADED PAGES ===================== */
 
@@ -71,6 +72,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         {/* Public Routes with Navbar */}
         <Route element={<PublicLayout />}>
@@ -111,7 +113,19 @@ function App() {
         </Route>
 
         {/* Global 404 */}
-        <Route path="*" element={<h1 className="text-center py-20 text-2xl font-black uppercase tracking-widest text-slate-300">404 Page Not Found</h1>} />
+        <Route path="*" element={
+          <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 py-20 space-y-8">
+            <div className="text-[12rem] font-semibold tracking-tighter text-slate-100 leading-none select-none">404</div>
+            <div className="space-y-3 -mt-20 relative">
+              <h1 className="text-3xl font-semibold tracking-tighter uppercase text-slate-900">Page Not Found</h1>
+              <p className="text-slate-400 font-medium max-w-sm mx-auto">The page you're looking for doesn't exist or has been moved.</p>
+            </div>
+            <div className="flex gap-4">
+              <a href="/" className="h-14 px-8 rounded-2xl bg-primary text-white font-semibold uppercase tracking-widest text-[10px] shadow-xl shadow-primary/20 flex items-center gap-2 hover:scale-105 transition-all">Back to Home</a>
+              <a href="/shop" className="h-14 px-8 rounded-2xl bg-slate-100 text-slate-600 font-semibold uppercase tracking-widest text-[10px] flex items-center gap-2 hover:bg-slate-200 transition-all">Browse Shop</a>
+            </div>
+          </div>
+        } />
       </Routes>
 
       <Toaster position="top-right" richColors closeButton expand={false} />
@@ -120,6 +134,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 

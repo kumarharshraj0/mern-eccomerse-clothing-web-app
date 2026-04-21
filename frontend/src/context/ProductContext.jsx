@@ -111,6 +111,16 @@ export const ProductProvider = ({ children }) => {
   );
 
   /* ================= REVIEWS ================= */
+  const getProductReviews = useCallback(async (productId) => {
+    try {
+      const { data } = await API.get(`/products/${productId}/reviews`);
+      return data;
+    } catch (error) {
+      toast.error("Failed to load reviews");
+      throw error;
+    }
+  }, []);
+
   const createReview = useCallback(
     (productId, data) => {
       return apiRequest(() => API.post(`/products/${productId}/reviews`, data));
@@ -149,6 +159,7 @@ export const ProductProvider = ({ children }) => {
       createReview,
       updateReview,
       deleteReview,
+      getProductReviews,
     }),
     [
       products,
@@ -165,6 +176,7 @@ export const ProductProvider = ({ children }) => {
       createReview,
       updateReview,
       deleteReview,
+      getProductReviews,
     ]
   );
 
@@ -183,6 +195,8 @@ export const useProducts = () => {
   }
   return context;
 };
+
+
 
 
 

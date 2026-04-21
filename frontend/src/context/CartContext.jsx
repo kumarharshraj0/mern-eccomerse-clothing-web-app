@@ -42,7 +42,7 @@ export const CartProvider = ({ children }) => {
 
   /* ---------------- ADD TO CART ---------------- */
   const addToCart = useCallback(
-    async (productId, qty = 1) => {
+    async (productId, qty = 1, size) => {
       if (!user) {
         toast.warning("Please login first");
         return;
@@ -52,7 +52,7 @@ export const CartProvider = ({ children }) => {
         const res = await apiRequest(() => {
           return API.post(
             "/cart/add",
-            { productId, qty }
+            { productId, qty, size }
           );
         });
         setCart(res.data?.cart ?? []);
@@ -134,7 +134,13 @@ export const CartProvider = ({ children }) => {
   );
 
   /* ---------------- LOAD CART ON LOGIN ---------------- */
-  // Removed auto-fetch useEffect - components should call loadCart() as needed
+  useEffect(() => {
+    if (user) {
+      loadCart();
+    } else {
+      setCart([]);
+    }
+  }, [user, loadCart]);
 
   /* ---------------- CONTEXT VALUE ---------------- */
   const value = useMemo(
@@ -176,6 +182,8 @@ export const useCart = () => {
   }
   return ctx;
 };
+
+
 
 
 

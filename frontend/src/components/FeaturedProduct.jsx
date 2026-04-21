@@ -73,16 +73,16 @@ const FeaturedProduct = () => {
           className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary"
         >
           <Crown size={14} className="fill-primary" />
-          <span className="text-[10px] font-black uppercase tracking-[0.4em]">Elite Selection</span>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.4em]">Elite Selection</span>
         </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 uppercase leading-[0.9]"
+          className="text-5xl md:text-7xl font-semibold tracking-tighter text-slate-900 uppercase leading-[0.9]"
         >
-          Featured <span className="text-primary italic font-serif normal-case">Premium</span>
+          Featured <span className="text-primary">Premium</span>
         </motion.h2>
 
         <motion.p
@@ -90,7 +90,7 @@ const FeaturedProduct = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-slate-500 text-lg font-serif italic"
+          className="text-slate-500 text-lg"
         >
           Discover luxury items crafted with precision and timeless elegance for the discerning individual.
         </motion.p>
@@ -125,7 +125,7 @@ const FeaturedProduct = () => {
 
                   {/* Top Badges */}
                   <div className="absolute top-8 left-8 right-8 flex justify-between items-start">
-                    <Badge className="bg-white/90 backdrop-blur-md text-slate-900 border-none rounded-full px-4 py-2 text-[8px] font-black tracking-widest uppercase shadow-xl group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Badge className="bg-white/90 backdrop-blur-md text-slate-900 border-none rounded-full px-4 py-2 text-[8px] font-semibold tracking-widest uppercase shadow-xl group-hover:bg-primary group-hover:text-white transition-colors">
                       LIMITED EDITION
                     </Badge>
 
@@ -143,7 +143,7 @@ const FeaturedProduct = () => {
                   <div className="absolute bottom-8 left-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                     <Button
                       onClick={() => handleProductClick(product._id)}
-                      className="rounded-full bg-white text-slate-900 hover:bg-white hover:scale-105 active:scale-95 font-black uppercase tracking-widest text-[10px] h-12 px-8 shadow-2xl transition-all"
+                      className="rounded-full bg-white text-slate-900 hover:bg-white hover:scale-105 active:scale-95 font-semibold uppercase tracking-widest text-[10px] h-12 px-8 shadow-2xl transition-all"
                     >
                       Learn More <ArrowUpRight size={14} className="ml-2" />
                     </Button>
@@ -152,11 +152,11 @@ const FeaturedProduct = () => {
 
                 {/* Content Area */}
                 <div className="mt-8 px-6 space-y-4 text-center">
-                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/60">{product.brand || "DESIGNER LABEL"}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-primary/60">{product.brand || "DESIGNER LABEL"}</p>
 
                   <h3
                     onClick={() => handleProductClick(product._id)}
-                    className="text-3xl font-black text-slate-900 tracking-tight cursor-pointer hover:text-primary transition-colors line-clamp-1 uppercase"
+                    className="text-3xl font-semibold text-slate-900 tracking-tight cursor-pointer hover:text-primary transition-colors line-clamp-1 uppercase"
                   >
                     {product.title}
                   </h3>
@@ -170,17 +170,17 @@ const FeaturedProduct = () => {
                           className={i < Math.round(product.rating || 0) ? "text-primary fill-primary" : "text-slate-200 fill-slate-200"}
                         />
                       ))}
-                      <span className="text-[10px] font-bold text-slate-400">({product.numReviews})</span>
+                      <span className="text-[10px] font-semibold text-slate-400">({product.numReviews})</span>
                     </div>
 
                     <div className="flex items-center justify-center gap-6 w-full pt-4 border-t border-slate-100">
-                      <p className="text-3xl font-black text-slate-900 tracking-tighter italic">₹{product.price.toLocaleString()}</p>
+                      <p className="text-3xl font-semibold text-slate-900 tracking-tighter">₹{product.price.toLocaleString()}</p>
                       <Button
                         disabled={!inStock}
                         onClick={() => addToCart(product._id, 1)}
-                        className="rounded-2xl h-12 px-8 bg-slate-900 hover:bg-primary shadow-xl shadow-slate-200 hover:shadow-primary/30 transition-all active:scale-95 font-black tracking-widest uppercase text-[10px]"
+                        className="rounded-2xl h-12 px-8 bg-slate-900 hover:bg-primary shadow-xl shadow-slate-200 hover:shadow-primary/30 transition-all active:scale-95 font-semibold tracking-widest uppercase text-[10px]"
                       >
-                        {inStock ? "Add to Bag" : "Restocking"}
+                        {inStock ? "Add to Cart" : "Out of Stock"}
                       </Button>
                     </div>
                   </div>
@@ -197,7 +197,7 @@ const FeaturedProduct = () => {
           to="/shop"
           className="group relative inline-flex items-center gap-3 text-slate-400 hover:text-primary transition-colors"
         >
-          <span className="text-sm font-black uppercase tracking-[0.5em]">View Full Catalog</span>
+          <span className="text-sm font-semibold uppercase tracking-[0.5em]">View Full Catalog</span>
           <div className="p-2 rounded-full border border-slate-200 group-hover:border-primary transition-colors">
             <ArrowUpRight size={16} />
           </div>
@@ -208,3 +208,5 @@ const FeaturedProduct = () => {
 };
 
 export default FeaturedProduct;
+
+

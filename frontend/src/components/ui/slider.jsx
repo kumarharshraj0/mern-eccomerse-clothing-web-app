@@ -52,3 +52,5 @@ function Slider({
 }
 
 export { Slider }
+
+

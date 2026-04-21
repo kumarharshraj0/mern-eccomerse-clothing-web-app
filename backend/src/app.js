@@ -31,16 +31,10 @@ app.use(
     origin: [
       process.env.FRONTEND_URL,
       "http://localhost:5173",
-<<<<<<< HEAD
-      "https://brilliant-boba-cc5cfd.netlify.app"
-    ],
-    credentials: false
-=======
       "https://admirable-lolly-d0be66.netlify.app"
     ],
     credentials: false,
     maxAge: 86400 // Cache preflight results for 24 hours
->>>>>>> 09356f3c (UI/UX Modernization: SwiftMart Branding, Functional Search, Category Filters, and Reviews Bug Fix)
   })
 );
 
